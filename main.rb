@@ -9,7 +9,7 @@ products = [
   Product.new(name: "Toilet Paper", price: 8.88, quantity: 0)
 ]
 
-warehouse = [
+warehouses = [
   Warehouse.new(product_id: 1, amount: 4),
   Warehouse.new(product_id: 2, amount: 8),
   Warehouse.new(product_id: 3, amount: 11),
@@ -19,17 +19,16 @@ warehouse = [
 Product.show_products(products)
 puts
 
-basket = Basket.new([])
-
 puts "Today on discount: "
-Product.discount(products, 1, 2.00)
+Product.show_discount_product(products, 1, 2.00)
 
 puts "Your shopping"
 puts "======================================================================"
 
-basket.add(products, 1, warehouse, 1)
-basket.add(products, 2, warehouse, 1)
-basket.remove(products, 1, warehouse, 1)
+basket = Basket.new
+basket.add(products, 1, warehouses, 1)
+basket.add(products, 2, warehouses, 1)
+basket.remove(products, 1, warehouses, 1)
 
 puts "======================================================================"
 puts
