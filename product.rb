@@ -20,20 +20,16 @@ class Product
     end
   end
 
-  def self.show_discount_product(products, id, amount)
-    product = find_product(products, id)
+  def show_discount_product(amount)
+    discount(@price, amount)
     puts "======================================================================"
-    puts "\tNAME: #{product.name} \t|\t SPECIAL PRICE:  #{discount(product, id, amount)} zl"
+    puts "\tNAME: #{@name} \t|\t SPECIAL PRICE:  #{@price} zl"
     puts "======================================================================"
     puts
   end
 
-  def discount(product, id, amount)
-    product.price -= amount
-  end
-
-  def find_product(products, id)
-    products.find{ |product| product.id == id }
+  def discount(price, amount)
+    price -= amount
   end
 
   def price_with_vat
